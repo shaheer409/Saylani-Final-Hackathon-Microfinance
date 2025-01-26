@@ -15,29 +15,28 @@ import Calculator from "./Calculator";
 const categories = [
   {
     title: "Wedding Loans",
-    description: "Subcategories: Valima, Furniture, Valima Food, Jahez",
+    description: "Valima, Furniture, Valima Food, Jahez",
     maxLoan: "PKR 5 Lakh",
     period: "3 years",
     path: "wedding-loans",
   },
   {
     title: "Home Construction Loans",
-    description: "Subcategories: Structure, Finishing, Loan",
+    description: "Structure, Finishing, Loan",
     maxLoan: "PKR 10 Lakh",
     period: "5 years",
     path: "home-construction-loans",
   },
   {
     title: "Business Startup Loans",
-    description:
-      "Subcategories: Buy Stall, Advance Rent for Shop, Shop Assets, Shop Machinery",
+    description: "Buy Stall, Advance Rent for Shop, Shop Assets, Shop Machinery",
     maxLoan: "PKR 10 Lakh",
     period: "5 years",
     path: "business-startup-loans",
   },
   {
     title: "Education Loans",
-    description: "Subcategories: University Fees, Child Fees Loan",
+    description: "University Fees, Child Fees Loan",
     maxLoan: "Based on requirement",
     period: "4 years",
     path: "education-loans",
@@ -48,20 +47,20 @@ const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ backgroundColor: "#f4f4f4", minHeight: "100vh" }}>
-      {/* Banner Section */}
+    <Box sx={{ backgroundColor: "#eaf2f8", minHeight: "100vh" }}>
+      {/* Hero Section */}
       <Box
         sx={{
-          height: { xs: "300px", sm: "400px" },
+          height: { xs: "400px", sm: "500px" },
           backgroundImage:
-            'url("https://source.unsplash.com/1600x900/?microfinance,business")',
+            'url("https://source.unsplash.com/1600x900/?finance")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          color: "white",
+          color: "#ffffff",
         }}
       >
         <Box
@@ -71,114 +70,69 @@ const LandingPage = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: "rgba(0, 0, 0, 0.6)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           }}
         />
-        <Box
-          sx={{
-            textAlign: "center",
-            zIndex: 1,
-            padding: "0 20px",
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{
-              fontSize: { xs: "2rem", sm: "3rem" },
-              fontWeight: 600,
-            }}
-            gutterBottom
-          >
-            Welcome to Saylani Microfinance
+        <Box sx={{ textAlign: "center", zIndex: 1, px: 3 }}>
+          <Typography variant="h2" sx={{ fontWeight: 800 }}>
+            Saylani Microfinance
           </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: { xs: "1rem", sm: "1.5rem" },
-              marginBottom: "20px",
-            }}
-          >
-            Empowering you to achieve your financial dreams
+          <Typography variant="h5" sx={{ mt: 2 }}>
+            Empowering Your Financial Future
           </Typography>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             size="large"
             onClick={() => navigate("/loan-request")}
-            sx={{
-              backgroundColor: "#ff7043",
-              ":hover": { backgroundColor: "#ff5722" },
-            }}
+            sx={{ mt: 3, px: 6, py: 1.5, fontSize: "1.2rem", fontWeight: 700 }}
           >
-            Get Started Now
+            Apply Now
           </Button>
         </Box>
       </Box>
 
       {/* Loan Categories Section */}
-      <Container sx={{ paddingY: "50px" }}>
-        <Typography
-          variant="h4"
-          align="center"
-          gutterBottom
-          sx={{ fontWeight: 600 }}
-        >
-          Select a Loan Category
+      <Container sx={{ py: 8 }}>
+        <Typography variant="h3" align="center" sx={{ fontWeight: 800, mb: 4 }}>
+          Select Your Loan Option
         </Typography>
-        <Typography
-          variant="body1"
-          align="center"
-          paragraph
-          sx={{ marginBottom: "30px", color: "#555" }}
-        >
-          Choose from a range of loan options tailored to meet your specific
-          financial needs.
-        </Typography>
-
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={5} justifyContent="center">
           {categories.map((category, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item xs={12} sm={6} md={3} key={index}>
               <Card
                 sx={{
-                  borderRadius: "10px",
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  transition: "transform 0.3s, box-shadow 0.3s",
+                  borderRadius: "15px",
+                  boxShadow: "0 8px 30px rgba(0, 0, 0, 0.1)",
+                  transition: "all 0.3s ease-in-out",
                   ":hover": {
                     transform: "scale(1.05)",
-                    boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+                    boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
                   },
-                  border: "none", // Removed unnecessary borders
                 }}
               >
                 <CardContent>
-                  <Typography
-                    variant="h5"
-                    gutterBottom
-                    sx={{ fontWeight: 600, color: "#333" }}
-                  >
+                  <Typography variant="h6" sx={{ fontWeight: 700 }}>
                     {category.title}
                   </Typography>
-                  <Typography variant="body2" color="textSecondary" paragraph>
+                  <Typography variant="body2" sx={{ mb: 2 }}>
                     {category.description}
                   </Typography>
-                  <Typography variant="body1" gutterBottom>
+                  <Typography variant="body1">
                     <strong>Max Loan:</strong> {category.maxLoan}
                   </Typography>
                   <Typography variant="body1">
                     <strong>Loan Period:</strong> {category.period}
                   </Typography>
                 </CardContent>
-                <CardActions sx={{ mt: "auto" }}>
+                <CardActions>
                   <Button
                     variant="contained"
-                    color="primary"
                     fullWidth
+                    color="secondary"
                     onClick={() => navigate(`/loan-details/${category.path}`)}
                   >
-                    Learn More
+                    Explore
                   </Button>
                 </CardActions>
               </Card>
@@ -188,21 +142,12 @@ const LandingPage = () => {
       </Container>
 
       {/* Calculator Section */}
-      <Box sx={{ backgroundColor: "#ffffff", paddingY: "40px" }}>
+      <Box sx={{ backgroundColor: "#d6eaf8", py: 6 }}>
         <Container>
-          <Typography variant="h4" align="center" gutterBottom>
-            Loan Calculator
+          <Typography variant="h3" align="center" sx={{ fontWeight: 800, mb: 4 }}>
+            Loan Estimator
           </Typography>
-          <Typography
-            variant="body1"
-            align="center"
-            paragraph
-            sx={{ color: "#555", marginBottom: "30px" }}
-          >
-            Calculate your estimated loan payments and find the best plan for
-            you.
-          </Typography>
-          <Box sx={{ maxWidth: "600px", margin: "0 auto" }}>
+          <Box sx={{ maxWidth: "600px", mx: "auto" }}>
             <Calculator />
           </Box>
         </Container>
